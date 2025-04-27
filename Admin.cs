@@ -78,7 +78,7 @@ namespace HostelManagementSystem
             ExcelHelper.CreateExcelFile(new[] { table });
         }
 
-        public void AddStudent(int id , string name, string email, string password)
+        public void AddStudent(int id, string name, string email, string password)
         {
             try
             {
@@ -143,6 +143,19 @@ namespace HostelManagementSystem
                 Console.WriteLine($"Error viewing students: {ex.Message}");
             }
         }
+        //public void UpdateStudent(string studentId , string studentName , string studentEmail, string studentPassword)
+        public void UpdateStudent(string studentId, string studentName = null, string studentEmail = null, string studentPassword = null)
+        {
+            var studentsTable = ExcelHelper.ReadData(StudentsSheet);
+            var student = studentsTable.AsEnumerable().FirstOrDefault(row => row["ID"].ToString() == studentId);
+
+            if (studentName != null) student["Name"] = studentName;
+            if (studentEmail != null) student["Email"] = studentEmail;
+            if (studentPassword != null) student["Password"] = studentPassword;
+
+            ExcelHelper.WriteData(StudentsSheet, studentsTable);
+        }
+
 
         public void AssignRoom(string studentId, int roomNumber)
         {

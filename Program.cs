@@ -295,9 +295,10 @@ namespace HostelManagementSystem
                 Console.WriteLine("\nManage Students");
                 Console.WriteLine("1. Add New Student");
                 Console.WriteLine("2. View All Students");
-                Console.WriteLine("3. Assign Room to Student");
-                Console.WriteLine("4. Remove Student");
-                Console.WriteLine("5. Back to Admin Menu");
+                Console.WriteLine("3. Update Students");
+                Console.WriteLine("4. Assign Room to Student");
+                Console.WriteLine("5. Remove Student");
+                Console.WriteLine("6. Back to Admin Menu");
                 Console.Write("Enter choice: ");
 
                 string choice = Console.ReadLine();
@@ -312,13 +313,17 @@ namespace HostelManagementSystem
                         Console.WriteLine("Press any key to continue...");
                         Console.ReadKey();
                         break;
-                    case "3":
-                        AssignRoomToStudent();
+                        case "3":
+                        _admin.ViewAllStudents();
+                        _admin.UpdateStudent();
                         break;
                     case "4":
-                        RemoveStudent();
+                        AssignRoomToStudent();
                         break;
                     case "5":
+                        RemoveStudent();
+                        break;
+                    case "6":
                         return;
                     default:
                         Console.WriteLine("Invalid choice. Please try again.");

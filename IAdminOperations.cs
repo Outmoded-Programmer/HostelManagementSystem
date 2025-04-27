@@ -10,6 +10,8 @@ namespace HostelManagementSystem
     {
         void AddStudent(int id , string name, string email, string password);
         void ViewAllStudents();
+        //void UpdateStudent(string studentId, string studentName, string studentEmail, string studentPassword);
+        void UpdateStudent(string studentId , string studentName, string studentEmail , string studentPassword);
         void AssignRoom(string studentId, int roomNumber);
         void RemoveStudent(string studentId);
         void ViewRoomStatus();
